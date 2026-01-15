@@ -45,7 +45,8 @@
 	"postCreateCommand": "bash .devcontainer/setup.sh",
 
 	"remoteEnv": {
-		"DISPLAY": ":1"
+		"DISPLAY": ":1",
+		"JAVA_HOME": "/home/vscode/.sdkman/candidates/java/current"
 	},
 
 	"remoteUser": "vscode"
