@@ -41,15 +41,6 @@ Once the container is running:
 2. Select "Launch Virtual Robot"
 3. View the GUI at http://localhost:6080
 
-### Method 2: Terminal
-```bash
-cd /workspaces/virtual_robot
-export JAVA_HOME=$HOME/.sdkman/candidates/java/current
-java --module-path $JAVA_HOME/lib \
-     --add-modules javafx.controls,javafx.fxml,javafx.graphics \
-     -cp Controller/src:TeamCode/src \
-     virtual_robot.controller.VirtualRobotApplication
-```
 
 ## Verifying Installation
 
