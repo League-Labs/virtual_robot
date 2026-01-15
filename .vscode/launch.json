@@ -7,7 +7,10 @@
             "request": "launch",
             "mainClass": "virtual_robot.controller.VirtualRobotApplication",
             "classPaths": [
-                "${workspaceFolder}/out",
+                "${workspaceFolder}/Controller/build/classes/java/main",
+                "${workspaceFolder}/Controller/build/resources/main",
+                "${workspaceFolder}/TeamCode/build/classes/java/main",
+                "${workspaceFolder}/TeamCode/build/resources/main",
                 "${workspaceFolder}/lib/dyn4j-4.1.4.jar",
                 "${workspaceFolder}/lib/guava-20.0.jar",
                 "${workspaceFolder}/lib/javassist-3.21.0-GA.jar",
@@ -17,9 +20,12 @@
                 "${workspaceFolder}/lib/Jamepad.jar",
                 "${workspaceFolder}/lib/EasyOpenCV_v1.5.0_OBJ_bundle.jar"
             ],
+            "modulePaths": [],
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
-            "vmArgs": "-Dprism.order=sw"
+            "vmArgs": "-Dprism.order=sw",
+            "preLaunchTask": "gradle-build",
+            "javaExec": "/usr/local/sdkman/candidates/java/17.0.13.fx-librca/bin/java"
         }
     ]
 }

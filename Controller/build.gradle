@@ -1,0 +1,60 @@
+plugins {
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.1.0'
+}
+
+application {
+    mainClass = 'virtual_robot.controller.VirtualRobotApplication'
+}
+
+javafx {
+    version = "17.0.2"
+    modules = ['javafx.controls', 'javafx.fxml', 'javafx.graphics', 'javafx.base']
+}
+
+dependencies {
+    // Local JAR files
+    implementation files('../lib/Jamepad.jar')
+    implementation files('../lib/dyn4j-4.1.4.jar')
+    implementation files('../lib/guava-20.0.jar')
+    implementation files('../lib/javassist-3.21.0-GA.jar')
+    
+    // Reflections
+    implementation 'org.reflections:reflections:0.9.11'
+}
+
+configurations {
+    runtimeClasspath.extendsFrom(teamCode)
+}
+
+configurations {
+    teamCode
+}
+
+dependencies {
+    teamCode project(':TeamCode')
+}
+
+jar {
+    manifest {
+        attributes(
+            'Main-Class': 'virtual_robot.controller.VirtualRobotApplication'
+        )
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+distTar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+distZip {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+// Make the run task use the classpath correctly
+run {
+    classpath = sourceSets.main.runtimeClasspath + configurations.teamCode
+}
+
+

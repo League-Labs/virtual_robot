@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+}
+
+allprojects {
+    group = 'virtual_robot'
+    version = '1.0-SNAPSHOT'
+    
+    repositories {
+        mavenCentral()
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+    
+    java {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+    
+    sourceSets {
+        main {
+            java {
+                srcDirs = ['src']
+            }
+            resources {
+                srcDirs = ['src']
+                exclude '**/*.java'
+            }
+        }
+    }
+}
